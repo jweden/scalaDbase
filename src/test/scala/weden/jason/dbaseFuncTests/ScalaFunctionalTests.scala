@@ -10,7 +10,7 @@ import org.squeryl.{Schema, Session}
 class ScalaFunctionalTests extends TestNGSuite {
   private final val LOG: Logger = LogManager.getLogger(classOf[ScalaFunctionalTests])
 
-  @Test(invocationCount = 1, description = "Repeat of test in java but this time from Scala to show calling Java base class")
+  @Test(invocationCount = 1, description = "Do select statement against postgres database and print out result.")
   def quickTest() {
     import org.squeryl.PrimitiveTypeMode._
     import Library._

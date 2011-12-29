@@ -1,0 +1,2 @@
+This demo is run via "mvn test".  It shows how to use Squeryl (a Scala ORM) for accessing a postgres database.
+It assumes postgres is up and running and that the sql in the sql.txt file has been run in the database.

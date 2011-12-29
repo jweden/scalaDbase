@@ -1,10 +1,7 @@
 package weden.jason.dbaseFuncTests
 
 import org.testng.annotations.Test
-import org.testng.Assert._
 import org.scalatest.testng.TestNGSuite
-import java.net.{URLConnection, URL}
-import javax.xml.bind.DatatypeConverter
 import org.apache.log4j.{Logger, LogManager}
 import org.squeryl.adapters.PostgreSqlAdapter
 import java.util.Date
@@ -28,11 +25,11 @@ class ScalaFunctionalTests extends TestNGSuite {
   }
 
 
-
   object Library extends Schema {
     //When the table name doesn't match the class name, it is specified here :
     val customer = table[Customer]("customer")
   }
+
 }
 
 class Customer(

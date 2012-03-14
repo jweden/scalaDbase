@@ -3,9 +3,6 @@ package weden.jason.restTests
 import org.testng.annotations.Test
 import org.scalatest.testng.TestNGSuite
 import org.apache.log4j.{Logger, LogManager}
-
-//import actors.Actor
-
 import cc.spray.http._
 import cc.spray.http.HttpMethods._
 import cc.spray.can.HttpClient
@@ -14,13 +11,10 @@ import akka.actor.{PoisonPill, Actor, Supervisor}
 import cc.spray.client.{Get, HttpConduit}
 import cc.spray.typeconversion.SprayJsonSupport
 
-//import cc.spray.utils.Logging
-
-
 class ScalaRestTester extends TestNGSuite {
   private final val LOG: Logger = LogManager.getLogger(classOf[ScalaRestTester])
 
-  @Test(invocationCount = 1, description = "something")
+  @Test(description = "No Asserts yet, just showing Spray client")
   def firstTest() {
     // start and supervise the spray-can HttpClient actor
     Supervisor(
@@ -31,7 +25,6 @@ class ScalaRestTester extends TestNGSuite {
     )
 
     fetchAndShowGoogleDotCom()
-
     fetchAndShowHeightOfMtEverest()
 
     Actor.registry.actors.foreach(_ ! PoisonPill)
@@ -61,7 +54,6 @@ class ScalaRestTester extends TestNGSuite {
         val elevationPipeline = simpleRequest ~> sendReceive ~> unmarshal[GoogleApiResult[Elevation]]
       }
       val responseFuture = conduit.elevationPipeline(Get("/maps/api/elevation/json?locations=27.988056,86.925278&sensor=false"))
-      //   log.info("The elevation of Mt. Everest is: %s m", responseFuture.get.results.head.elevation)
       LOG.info("The elevation of Mt. Everest is: " + responseFuture.get.results.head.elevation)
       conduit.close()
     }

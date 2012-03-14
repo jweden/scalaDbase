@@ -19,7 +19,11 @@
     </appender>
 
     <category name="weden.jason.dbaseFuncTests">
-        <priority value="INFO"/>
+        <priority value="DEBUG"/>
+    </category>
+
+    <category name="weden.jason.restTests">
+        <priority value="DEBUG"/>
     </category>
 
     <root>
